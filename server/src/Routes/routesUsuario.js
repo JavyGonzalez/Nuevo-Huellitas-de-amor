@@ -1,7 +1,6 @@
 const { Router } = require("express");
 const router = Router();
 const crearUsuario = require("../controllers/postCrearUsuario");
-// const getUsersId = require("../controllers/getUsersId");
 
 //controlador que llena la bd de usuarios para prueba
 const llenarUsuario = require("../utils/llenarUsuario");
@@ -25,7 +24,7 @@ router.post("/crearUsuario", async (req, res) => {
 
 router.get("/tipoDeUsuario", async (req, res) => {
 	try {
-		// const {id} = req.params
+
 		const userType = await findTypesUsers();
 		return res.status(200).json(userType);
 	} catch (error) {
@@ -33,31 +32,6 @@ router.get("/tipoDeUsuario", async (req, res) => {
 	}
 });
 
-//controlador que funciona con propositos de llenar la base de datos con datos de usuario para testeo
-// router.get("/fill", async (req, res) => {
-//   try {
-//     //Esta linea de codigo borra la tabla para asegurarse que no se vuelva a rescribir la informacion que le estamos a punto de pasar
-
-//     // Llena la tabla con los datos de users que al final son los datos de data.js es decir todas los usuarios
-//     // await Usuario.bulkCreate(allUsers);
-
-//     //Llama llenarUsuario que usa un metodo de sequelize llamado bulkCreate que llena la la base de datos con data de usuarios validos
-
-//     console.log(llenarUsuario);
-//     const getFill = () => llenarUsuario();
-
-//     getFill();
-
-//     res
-//       .status(200)
-//       .json({ message: "Datos de usuarios llenados exitosamente" });
-//   } catch (error) {
-//     console.error("Error al llenar los datos:", error);
-//     res
-//       .status(500)
-//       .json({ error: "Error al llenar los datos de los usuarios" });
-//   }
-// });
 
 //Ruta que me trae todos los usuarios de la base de datos necesario para la gestion de usuarios en el componente admin
 router.get("/", async (req, res) => {

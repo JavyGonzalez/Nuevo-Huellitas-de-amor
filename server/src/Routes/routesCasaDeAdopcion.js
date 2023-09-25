@@ -5,15 +5,10 @@ const fillHomes = require('../utils/fillHomes')
 const getAllHomes = require('../controllers/getAllHomes')
 const modHouseById = require('../controllers/modHouseById')
 const deleteHouseAdoptionById = require('../controllers/deleteHouseAdoption')
-
 const modCompleteHouse = require('../controllers/modCompleteHouse')
-// const getHouseById = require('../controllers/getHouseById')
 const deleteCommentHouse = require("../../src/controllers/deleteCommentHouse");
-
 const postRatings = require("../controllers/postRatings")
 const postHouseComments=require('../controllers/postHouseComments')
-
-
 const getCasaById = require("../controllers/getCasaById");
 const getComentarios = require("../controllers/getComentarios");
 
@@ -29,14 +24,6 @@ router.post("/", async (req, res) => {
 
 router.get('/fill', async (req, res) => {
   try {
-		//Esta linea de codigo borra la tabla para asegurarse que no se vuelva a rescribir la informacion que le estamos a punto de pasar
-    
-
-    // Llena la tabla con los datos de users que al final son los datos de data.js es decir todas los usuarios
-    // await Usuario.bulkCreate(allUsers);
-
-    //Llama llenarUsuario que usa un metodo de sequelize llamado bulkCreate que llena la la base de datos con data de usuarios validos
-
 
     const getFill = () => fillHomes()
     
@@ -107,21 +94,5 @@ router.post("/:id/ratings", postRatings)
 router.post("/:id/comments", postHouseComments);
 router.get("/:id/comments", getComentarios)
 router.delete('/:id/comments', deleteCommentHouse)
-
-
-
-//!Mi csa por id pero Oziel se me adelanto y ya la creo
-// router.get("/:id", async (req, res) => {
-//   try {
-//     const { id } = req.params;
-//     const houseId =  await getHouseById(id);
-//     return res.status(200).json(houseId);
-//   } catch (error) {
-//     return res.status(500).json({ mensaje: "Error en el servidor" });
-//   }
-// });
-
-
-
 
 module.exports = router;

@@ -1,6 +1,5 @@
 //Importar modelos
 const { Mascota } = require("../db.js");
-// const axios = require("axios");
 
 const getPetById = async (id) => {
   

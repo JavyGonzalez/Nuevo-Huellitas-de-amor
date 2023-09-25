@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const router = Router();
-const { Adopcion } = require("../db");
-const { Usuario } = require("../db");
+//const { Adopcion } = require("../db");
+//const { Usuario } = require("../db");
 
 const getAdoptionUser = require("../controllers/getAdoptionUser");
 

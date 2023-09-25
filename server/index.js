@@ -5,7 +5,7 @@ const { conn } = require("./src/db.js");
 const fillHomes = require("./src/utils/fillHomes.js");
 const fillPets = require("./src/utils/fillPets.js");
 const llenarUsuario = require("./src/utils/llenarUsuario.js");
-// const crearAdopcion = require("./src/utils/crearAdopcion.js");
+
 
 const PORT = 3001;
 
@@ -13,7 +13,7 @@ const PORT = 3001;
 
 conn
   .sync({
-    force: true
+    force: false
     ,
   })
   .then(() => {
@@ -22,6 +22,6 @@ conn
       llenarUsuario();
       fillDonations();
       fillPets();
-      console.log(`Correte a la POKEVERGA en el:  ${PORT}`); // eslint-disable-line no-console
+      console.log(`Servidor Huellitas arriba en:  ${PORT}`); // eslint-disable-line no-console
     });
   });

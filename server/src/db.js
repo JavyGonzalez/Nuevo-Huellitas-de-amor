@@ -9,14 +9,8 @@ const sequelize = new Sequelize(
   //!Para usar la base de datos Remota 01/09:
   "postgresql://postgres:XkyrYs7Ygf2FSyF5nQs3@containers-us-west-149.railway.app:6905/railway",
   
-
-  //!Para usar la base de datos Remota:
-
-  // `postgresql://postgres:devZjxigFLUOiHZBcQxh@containers-us-west-127.railway.app:6739/railway`,
   //!Para usar la base de datos local
   // `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/huellitas`,
-
-
 
   {
     logging: false,// set to console.log to see the raw SQL queries
@@ -96,6 +90,7 @@ Usuario.hasMany(Adopcion, {
   foreignKey: "usuarioId",
 });
 
+//Macotas --> Usuarios
 Mascota.belongsTo(Usuario, {
 	foreignKey: "usuarioId",
 });
@@ -103,8 +98,7 @@ Usuario.hasMany(Mascota, {
 	foreignKey: "usuarioId",
 });
 
-//Lo comenté porque si no, cuando haces post de casa de adopción te pide un comentario como dato en el json.
-//Casa de Apciones --> Comentarios
+//Casa de Adpoción --> Comentarios
 CasaDeAdopcion.hasMany(Comentario, {
   foreignKey: "casaDeAdopcionId",
 });
@@ -135,38 +129,34 @@ Donacion.belongsTo(CasaDeAdopcion, {
 CasaDeAdopcion.hasMany(Donacion, {
   foreignKey: "casaDeAdpocionId",
 });
+
 //Formulario de Adopción --> Casa de Adopciones
 FormularioAdop.belongsTo(CasaDeAdopcion, {
   foreignKey: "casaDeAdpocionId",
-})
-//Casa de Adopciones --> Formulario de Adopción
+});
 CasaDeAdopcion.hasMany(FormularioAdop, {
   foreignKey: "casaDeAdpocionId",
-})
+});
+
 //Notificaciones --> Usuarios
 Notificaciones.belongsToMany(Usuario, {
   through: "NotificacionUsuario",
   
-})
-//Usuarios --> Notificaciones
+});
 Usuario.belongsToMany(Notificaciones, {
   through: "NotificacionUsuario",
 })
-
 
 //Usuarios -->  favoritos
 Favorito.belongsTo(Usuario, {
   foreignKey: "favoritoId",
 }); //Un usuario puede tener muchos favoritos (1 a N)
-
 Usuario.hasMany(Favorito, { foreignKey: "favoritoId" }); //
 
 //Mascotas --> Favoritos
-
 Favorito.belongsTo(Mascota, {
   foreignKey: "favoritoId",
 }); //Un usuario puede tener muchos favoritos (1 a N)
-
 Mascota.hasMany(Favorito, { foreignKey: "favoritoId" }); //
 
 module.exports = {

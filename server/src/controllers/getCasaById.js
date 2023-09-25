@@ -1,5 +1,4 @@
 const { CasaDeAdopcion } = require("../db.js");
-// const axios = require("axios");
 
 const getCasaById = async (id) => {
   try {

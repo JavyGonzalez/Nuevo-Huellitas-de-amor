@@ -8,11 +8,9 @@ async function usuarioTipoController(req, res) {
 
 
     // Verifica si el usuario y el tipo de usuario existen
-    // const allUsers = await Usuario.findAll()
     const usuario = await Usuario.findByPk(usuarioId);
     const tipoDeUsuario = await TipoDeUsuario.findByPk(tipoDeUsuarioId);
-    
-    // console.log(allUsers)
+
 
     if (!usuario || !tipoDeUsuario) {
       return res.status(404).json({ error: 'Usuario o tipo de usuario no encontrado.' });

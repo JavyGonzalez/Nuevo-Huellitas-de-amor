@@ -1,6 +1,5 @@
 //Importar modelos
 const { CasaDeAdopcion} = require("../db.js");
-// const axios = require("axios");
 
 const getHomeById = async (req, res) => {
     const { id } = req.params;

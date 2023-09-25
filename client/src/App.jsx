@@ -1,9 +1,7 @@
 import "./App.css";
 import { Routes, Route, useLocation, Navigate, Router } from "react-router-dom";
-// import Landing from "./components/Landing/Landing";
 import Home from "./components/Home/Home";
 import Nav from "./components/Nav/Nav";
-// import Perfil from "./components/PerfilUser/Perfiluser";
 import Perfil from "./components/PerfilUser/Perfiluser";
 import AgregarMascota from "./components/AgregarMascota/AgregarMascota";
 import FilterMascotas from "./components/FilterButtons/FilterButtons";
@@ -14,7 +12,6 @@ import ModalLogSig from "./components/ModalLogSig/ModalLogSig";
 
 import Registro from "./components/Registro/Registro";
 import DashboardSuperAdmin from "./components/Dashboard/DashboardSuperAdmin/DashboardSuperAdmin";
-// import Dashboard from "./components/Dashboard/Dashboard";
 import DetailUser from "./components/Dashboard/DetailUser";
 import DetailHouse from "./components/Dashboard/detailHouse";
 import CasaDeAdopcion from "./components/CasaDeAdopcion/CasaDeAdopcion";
@@ -34,7 +31,7 @@ import UsersAdmin from "./components/Dashboard/DashboardAdmin/UsersAdmin";
 import DashboardHouses from "./components/Dashboard/DashboardHouses/DashboardHouses";
 import DonationsHouses from "./components/Dashboard/DashboardHouses/DonationsHouses";
 import PetsHouses from "./components/Dashboard/DashboardHouses/PetsHouses";
-// import { AuthProvider } from "../../server/src/context/AuthContext";
+
 
 import { Auth0Provider } from "@auth0/auth0-react";
 import Usuarios from "./components/usuarios/Usuarios";
@@ -56,13 +53,12 @@ function App() {
   return (
     <>
       <Auth0Provider
-        domain="dev-zmxdsgjn0buf7bnr.us.auth0.com"
-        clientId="r3sV01hm6BXdgakUyDXf1AT23FEXYqUF"
+        domain="dev-6jyw1alnswuqae23.us.auth0.com"
+        clientId="3Z1jbBNggWsJ6q1aPWmBptic5shEzEff"
         authorizationParams={{ redirect_uri: window.location.origin }}
       >
         {location.pathname !== "/home" && <Nav />}
         <Routes>
-          {/* <Route path={PathRoutes.LANDINGPAGE} element={<Landing />} /> */}
           <Route path={PathRoutes.HOME} element={<Home />} />
           <Route path={PathRoutes.FILTER} element={<FilterMascotas />} />
           <Route path={PathRoutes.PERFIL} element={<Perfil />} />

@@ -1,6 +1,5 @@
 const { CasaDeAdopcion, Usuario, Comentario } = require("../db.js");
 
-
 const getComentarios = async (req, res) => {
 	const { id } = req.params;
 	try {

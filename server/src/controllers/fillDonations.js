@@ -8,9 +8,7 @@ const fillDonations = async (req, res) => {
   if (!DB) {
     try {
       await Donacion.bulkCreate(allDonations);
-      // if (Donacion) {
-        // res.status(200).json({ message: 'Datos de mascotas llenados exitosamente' });
-      // }
+
     } catch (error) {
       console.error('Error al llenar los datos:', error);
        throw { error: error?.status, message: error?.message };

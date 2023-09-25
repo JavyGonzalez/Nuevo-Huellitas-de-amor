@@ -11,7 +11,6 @@ const modFotoPerfil = async (id, updatedData) => {
 
     // Actualizar las propiedades del usuario
     usuario.imagenPerfil = updatedData.imagenPerfil;
-    // usuario.imagenPortada = updatedData.imagenPortada;
 
     // Guardar los cambios en la base de datos
     await usuario.save();
